@@ -9,7 +9,6 @@ function generateNum() {
     num = Math.ceil(Math.random() * 10);
 }
 generateNum();
-
 Array.from(document.getElementsByClassName("btn")).forEach((button) => {
     button.addEventListener('click', (e) => {
         if (num == button.value) {
@@ -19,6 +18,12 @@ Array.from(document.getElementsByClassName("btn")).forEach((button) => {
             button.disabled = true;
             result = 11 - count;
             correctAudio.play();
+            if (count == 1) {
+                document.getElementById("left").innerText = 3 - count + ' chances were left';
+            }
+            else {
+                document.getElementById("left").innerText = 3 - count + ' chance was left';
+            }
             document.getElementById("passed").innerHTML = "Great, You done it. Your score was " + result;
             Array.from(document.getElementsByClassName("btn")).forEach((button) => {
                 button.disabled = true;
@@ -29,6 +34,12 @@ Array.from(document.getElementsByClassName("btn")).forEach((button) => {
             button.style.backgroundColor = "rgb(255, 119, 119)";
             count++;
             button.disabled = true;
+            if (count == 1) {
+                document.getElementById("left").innerText = 3 - count + ' chances left';
+            }
+            else {
+                document.getElementById("left").innerText = 3 - count + ' chance left';
+            }
             wrongAudio.play();
             Array.from(document.getElementsByClassName("btn")).forEach((button) => {
                 if (count == 3) {
@@ -40,4 +51,3 @@ Array.from(document.getElementsByClassName("btn")).forEach((button) => {
         }
     })
 })
-
