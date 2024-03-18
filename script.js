@@ -12,6 +12,9 @@ let failedMsg = document.getElementById("failed");
 
 function generateNum() {
     num = Math.ceil(Math.random() * 10);
+    if (num == 0) {
+        num = 1;
+    }
 }
 generateNum();
 Array.from(Btn).forEach((button) => {
